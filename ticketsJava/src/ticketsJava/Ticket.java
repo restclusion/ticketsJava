@@ -35,6 +35,5 @@ public class Ticket {
 			e.printStackTrace();
 		}	
 
-
 	}
 }
