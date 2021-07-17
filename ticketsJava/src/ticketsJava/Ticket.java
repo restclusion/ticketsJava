@@ -7,11 +7,9 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 public class Ticket {
-
 	public static void main(String[] args) {
-
 		try {
-			FileInputStream fis = new FileInputStream("caso3.txt");
+			FileInputStream fis = new FileInputStream("caso1.txt");
 			InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
 			BufferedReader br = new BufferedReader(isr);
 
@@ -19,25 +17,17 @@ public class Ticket {
 			Producto prod;
 			Carrito carrito = new Carrito();
 
-			while ((linea = br.readLine()) != null)   {
-				
-				prod = carrito.transformarProducto(linea);
-				
-				// Carrito completo
+			while ((linea = br.readLine()) != null)   {		
+				prod = carrito.transformarProducto(linea);	
+
+				// Anadir producto al carrito
 				carrito.addItem(prod);	
 			}
-			// Muestra carrito
-			carrito.showCarrito();
-			
-			System.out.println(carrito.getImpuestosTotal());
-			System.out.println(carrito.getPrecioTotal());
-			
+			carrito.showCarrito();			
 			fis.close();
 		}
-
 		catch (IOException e) {
 			e.printStackTrace();
 		}	
-
 	}
 }
