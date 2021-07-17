@@ -5,8 +5,11 @@ TicketApp is a very simple Ticket system made in Java for Liferay Interview.
 TO RUN IT:
 
 1 - Download the repository
+
 2 - Execute the "TicketApp.jar" file within a Console (cmd, f.e.). You need to have the Input files as well.
+
 3 - When prompted, you just have to input a number in the console (referring to the input case) and press Enter.
+
 4 - The app will show you the receipt.
 
 AS TO HOW DID I TEST IT:
