@@ -8,15 +8,15 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class Ticket {
-	private String caso;
+	private static Scanner scan;
 	public static void main(String[] args) throws Exception {
 		
 		System.out.println("-------------- Sistema de tickets --------------\n");
 		System.out.println("-------------- ENTRADAS --------------\n");
 		System.out.println("Casos del Enunciado + 1 personal: entrada1, entrada2, entrada3, entrada4 \n");
 		System.out.println("Casos de ERROR (formatos incorrectos): entrada5, entrada6 \n");
-		System.out.println("Elije NUMERO de entrada: {1, 2, 3, 4, 5, 6}\n");
-		Scanner scan = new Scanner(System.in);
+		System.out.print("Teclee un NUMERO de entrada y ENTER: {1, 2, 3, 4, 5, 6}: ");
+		scan = new Scanner(System.in);
 		int s = scan.nextInt();
 		
 		try {
@@ -27,7 +27,7 @@ public class Ticket {
 			String linea;
 			Producto prod;
 			Carrito carrito = new Carrito();
-			System.out.println("-----------------");
+			System.out.println("\n--------- TICKET ---------\n");
 
 			while ((linea = br.readLine()) != null)   {		
 				prod = carrito.transformarProducto(linea);
