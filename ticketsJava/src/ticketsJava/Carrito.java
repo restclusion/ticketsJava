@@ -6,6 +6,7 @@ import java.util.*;
 public class Carrito {
 
 	private List<Producto> carrito;
+	private static final String[] noImpuestos = {"libro", "bombon", "chocolate", "pastilla"};
 	
 	public Carrito() {
 		carrito = new ArrayList<Producto>();
@@ -33,7 +34,7 @@ public class Carrito {
 		int cantidad;
 		String nombre = "";
 		double precio = 0.0;
-		boolean llevaImpuesto;
+		boolean llevaImpuesto = true;
 		boolean esImportado;
 		
 		boolean breakb = false;
@@ -58,11 +59,18 @@ public class Carrito {
 			}
 		}
 		
+		for(String item : noImpuestos) {
+			if(nombre.indexOf(item) >= 0) {
+				llevaImpuesto = false;
+			}
+		}
+		
 		esImportado = linea.indexOf("importado") >= 0;
 		
 		System.out.println(nombre);
-		System.out.println(precio);
-		System.out.println(esImportado);
+		System.out.println(precio + "\n");
+		System.out.println("ES IMPORTADO: " + esImportado);
+		System.out.println("LLEVA IMPUESTO: " + llevaImpuesto + "\n");
 
 		//return elProducto;
 	}

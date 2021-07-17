@@ -14,7 +14,7 @@ public class Ticket {
 		//Tester tester = new Tester();
 
 		try {
-			FileInputStream fis = new FileInputStream("caso1.txt");
+			FileInputStream fis = new FileInputStream("caso3.txt");
 			InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
 			BufferedReader br = new BufferedReader(isr);
 
