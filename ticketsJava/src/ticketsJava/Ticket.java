@@ -7,9 +7,9 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 public class Ticket {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		try {
-			FileInputStream fis = new FileInputStream("caso1.txt");
+			FileInputStream fis = new FileInputStream("caso4.txt");
 			InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
 			BufferedReader br = new BufferedReader(isr);
 
@@ -18,7 +18,7 @@ public class Ticket {
 			Carrito carrito = new Carrito();
 
 			while ((linea = br.readLine()) != null)   {		
-				prod = carrito.transformarProducto(linea);	
+				prod = carrito.transformarProducto(linea);
 
 				// Anadir producto al carrito
 				carrito.addItem(prod);	

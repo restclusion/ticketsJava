@@ -62,7 +62,7 @@ public class Producto {
 	}
 
 	public String precioIndiv() {
-		return decimal.format(calcularImpuestos() + this.precio);
+		return decimal.format(calcularImpuestos() + (this.precio * this.cantidad));
 	}
 
 	public String toString() {

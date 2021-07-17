@@ -51,8 +51,8 @@ public class Carrito {
 
 	public double getPrecioTotal() {
 		for(int i = 0; i < carrito.size(); i++) {
-			costeTotal += carrito.get(i).getPrecio();
-		}		
+			costeTotal += carrito.get(i).getPrecio() * carrito.get(i).getCantidad();
+		}	
 		costeTotal += impuestosTotal;
 		decimal.setRoundingMode(RoundingMode.UP);
 
@@ -75,23 +75,33 @@ public class Carrito {
 		System.out.println("Total: " + getPrecioTotal());
 	}
 
-
 	/**
 	 * @param linea
 	 * @return Producto
 	 * 
 	 * Devuelve Producto en base al String pasado (linea del archivo)
+	 * @throws Exception 
 	 */	
-	public Producto transformarProducto(String linea) {		
-		int cantidad;
+	public Producto transformarProducto(String linea) throws Exception {		
+		int cantidad = 0;
 		String nombre = "";
 		double precio = 0.0;
 		boolean llevaImpuesto = true;
 		boolean esImportado;	
 		boolean breakb = false;
 
-		String[] elem = linea.split(" ");	
-		cantidad = Integer.parseInt(elem[0]);
+		String[] elem = linea.split(" ");
+
+		try {
+			cantidad = Integer.parseInt(elem[0]);
+		} catch (NumberFormatException e) {
+			throw new NumberFormatException("¡Formato de entrada incorrecto!");
+		}
+		
+		boolean contiene = Arrays.stream(elem).anyMatch("a"::equals);
+		if(!contiene) {
+			throw new Exception("¡Formato de entrada incorrecto!");
+		}
 
 		for (int i = 1; i<elem.length && !breakb; i++) {
 			if(elem[i].equals("a")) {
