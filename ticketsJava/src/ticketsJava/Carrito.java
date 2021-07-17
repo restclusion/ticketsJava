@@ -1,12 +1,18 @@
 package ticketsJava;
 
-import java.text.NumberFormat;
 import java.util.*;
 
 public class Carrito {
 
+	private Producto elProducto;
 	private List<Producto> carrito;
 	private static final String[] noImpuestos = {"libro", "bombon", "chocolate", "pastilla"};
+	
+	private double costeInd;
+	private double costeTotal;
+	private double impuestos;
+	private double importacion;
+	private double impuestosTotal;
 	
 	public Carrito() {
 		carrito = new ArrayList<Producto>();
@@ -14,22 +20,26 @@ public class Carrito {
 	
 	
 	public void addItem(Producto prod) {
-		//carrito.add(parseLine(lineaFich));		
-		this.carrito.add(prod);	
+		carrito.add(prod);	
 	}
+	
+	public List<Producto> getCarrito(){
+		return new ArrayList<Producto> (carrito);
+	}
+	
+	
+
 	
 	
 	public void showCarrito() {
 		ListIterator<Producto> iterator = carrito.listIterator();
 		while(iterator.hasNext()) {
-			Producto item1 = iterator.next();
-			System.out.println(item1);
+			Producto item = iterator.next();
+			System.out.println(item);
 		}
 	}
 	
-	public void transformarProducto(String linea) {
-		
-		Producto elProducto;
+	public Producto transformarProducto(String linea) {
 		
 		int cantidad;
 		String nombre = "";
@@ -43,9 +53,7 @@ public class Carrito {
 		
 		cantidad = Integer.parseInt(elem[0]);
 		
-		System.out.println(cantidad);
-		
-		NumberFormat format = NumberFormat.getInstance(Locale.getDefault());
+		//System.out.println(cantidad);
 		
 		for (int i = 1; i<elem.length && !breakb; i++) {
 			if(elem[i].equals("a")) {
@@ -67,12 +75,12 @@ public class Carrito {
 		
 		esImportado = linea.indexOf("importado") >= 0;
 		
-		System.out.println(nombre);
+		/**System.out.println(nombre);
 		System.out.println(precio + "\n");
 		System.out.println("ES IMPORTADO: " + esImportado);
-		System.out.println("LLEVA IMPUESTO: " + llevaImpuesto + "\n");
+		System.out.println("LLEVA IMPUESTO: " + llevaImpuesto + "\n");**/
 
-		//return elProducto;
+		return elProducto = new Producto(cantidad, nombre, llevaImpuesto, esImportado, precio);
 	}
 	
 }

@@ -8,10 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 public class Ticket {
 
-
 	public static void main(String[] args) {
-
-		//Tester tester = new Tester();
 
 		try {
 			FileInputStream fis = new FileInputStream("caso3.txt");
@@ -20,14 +17,19 @@ public class Ticket {
 
 			String linea;
 			Producto prod;
-			Carrito cesta = new Carrito();
+			Carrito carrito = new Carrito();
 
 			while ((linea = br.readLine()) != null)   {
 				
-				cesta.transformarProducto(linea);
-				//cesta.addItem(prod);
-				//System.out.println(linea);
+				prod = carrito.transformarProducto(linea);
+				prod.calcularImpuestos();
+				// Carrito completo
+				carrito.addItem(prod);
+				
 			}
+			// Muestra carrito		
+			carrito.showCarrito();
+			
 			fis.close();
 		}
 

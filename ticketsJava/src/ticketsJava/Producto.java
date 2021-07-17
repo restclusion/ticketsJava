@@ -36,5 +36,17 @@ public class Producto {
 		return esImportado;
 	}
 	
+	public void calcularImpuestos() {
+		if(llevaImpuesto) {
+			System.out.println("Tiene impuesto " + nombre);
+		}
+	}
+	
+	
+	public String toString() {
+		String prod = this.cantidad + " " + this.nombre + " " + this.precio;
+		return prod;
+	}
+	
 	
 }
