@@ -1,6 +1,6 @@
 # ticketsJava
 
-TicketApp is a very simple Ticket system made in Java for Liferay Interview.
+TicketApp is a very simple Ticket system made in Java for the Liferay Interview Process (Graduate Program)
 
 TO RUN IT:
 
