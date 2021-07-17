@@ -22,13 +22,15 @@ public class Ticket {
 			while ((linea = br.readLine()) != null)   {
 				
 				prod = carrito.transformarProducto(linea);
-				prod.calcularImpuestos();
-				// Carrito completo
-				carrito.addItem(prod);
 				
+				// Carrito completo
+				carrito.addItem(prod);	
 			}
-			// Muestra carrito		
+			// Muestra carrito
 			carrito.showCarrito();
+			
+			System.out.println(carrito.getImpuestosTotal());
+			System.out.println(carrito.getPrecioTotal());
 			
 			fis.close();
 		}

@@ -8,16 +8,12 @@ public class Carrito {
 	private List<Producto> carrito;
 	private static final String[] noImpuestos = {"libro", "bombon", "chocolate", "pastilla"};
 	
-	private double costeInd;
-	private double costeTotal;
-	private double impuestos;
-	private double importacion;
-	private double impuestosTotal;
+	private double costeTotal = 0.0;
+	private double impuestosTotal = 0.0;
 	
 	public Carrito() {
 		carrito = new ArrayList<Producto>();
 	}
-	
 	
 	public void addItem(Producto prod) {
 		carrito.add(prod);	
@@ -27,8 +23,19 @@ public class Carrito {
 		return new ArrayList<Producto> (carrito);
 	}
 	
-	
+	public double getImpuestosTotal() {
+		for(int i = 0; i < carrito.size(); i++) {
+			impuestosTotal += carrito.get(i).calcularImpuestos();
+		}
+		return impuestosTotal;
+	}
 
+	public double getPrecioTotal() {
+		for(int i = 0; i < carrito.size(); i++) {
+			costeTotal += carrito.get(i).getPrecio();
+		}
+		return costeTotal + impuestosTotal;
+	}
 	
 	
 	public void showCarrito() {

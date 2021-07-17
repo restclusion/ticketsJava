@@ -36,17 +36,20 @@ public class Producto {
 		return esImportado;
 	}
 	
-	public void calcularImpuestos() {
+	public double calcularImpuestos() {
+		double impuestosTotal = 0.0;
 		if(llevaImpuesto) {
-			System.out.println("Tiene impuesto " + nombre);
+			impuestosTotal += precio * 0.10;
 		}
+		if(esImportado) {
+			impuestosTotal += precio * 0.05;
+		}
+		return cantidad * impuestosTotal;
 	}
-	
 	
 	public String toString() {
 		String prod = this.cantidad + " " + this.nombre + " " + this.precio;
 		return prod;
 	}
-	
 	
 }
