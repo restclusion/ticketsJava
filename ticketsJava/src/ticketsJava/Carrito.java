@@ -71,8 +71,8 @@ public class Carrito {
 			Producto item = iterator.next();
 			System.out.println(item);
 		}
-		System.out.println("Impuestos sobre las ventas: " + getImpuestosTotal());
-		System.out.println("Total: " + getPrecioTotal());
+		System.out.println("Impuestos sobre las ventas: " + getImpuestosTotal() + " €");
+		System.out.println("Total: " + getPrecioTotal() + " €");
 	}
 
 	/**
