@@ -10,7 +10,8 @@ TO RUN IT:
 
 3 - When prompted, you just have to input a number in the console (referring to the input case) and press Enter.
 
-4 - The app will show you the receipt.
+4 - The app will show you the receipt (see IMAGE)
+
 
 AS TO HOW DID I TEST IT:
 
